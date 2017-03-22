@@ -8,7 +8,65 @@ public class Ticket {
     private String reporter; //Stores person or department who reported issue
     private String description;
     private Date dateReported;
+    private Date resDate;
+    private String fix;
 
+    public Date getResDate() {
+        return resDate;
+    }
+
+    public void setResDate(Date resDate) {
+        this.resDate = resDate;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
+    }
+
+    public String getReporter() {
+        return reporter;
+    }
+
+    public void setReporter(String reporter) {
+        this.reporter = reporter;
+    }
+
+    public Date getDateReported() {
+        return dateReported;
+    }
+
+    public void setDateReported(Date dateReported) {
+        this.dateReported = dateReported;
+    }
+
+    public static int getTicketIdCounter() {
+        return ticketIdCounter;
+    }
+
+    public static void setTicketIdCounter(int ticketIdCounter) {
+        Ticket.ticketIdCounter = ticketIdCounter;
+    }
+
+    public void setTicketID(int ticketID) {
+        this.ticketID = ticketID;
+    }
+
+    public String getFix() {
+        return fix;
+
+    }
+
+    public void setFix(String fix) {
+        this.fix = fix;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
     //TODO Problem 1: explain the role of ticketIdCounter and ticketID
 
     //STATIC Counter - one variable, shared by all Ticket objects.
@@ -23,11 +81,13 @@ public class Ticket {
     // Either add them to this class or create another class called ResolvedTicket - which
     // do you think is the better approach?
 
-    public Ticket(String desc, int p, String rep, Date date) {
+    public Ticket(String desc, int p, String rep, Date date, Date resDate, String fix) {
         this.description = desc;
         this.priority = p;
         this.reporter = rep;
         this.dateReported = date;
+        this.resDate = resDate;
+        this.fix = fix;
         this.ticketID = ticketIdCounter;
         ticketIdCounter++;
     }
